@@ -1,0 +1,25 @@
+
+<h3>Form</h3>
+
+<form [formGroup]='updateForm' (ngSubmit)='validate()'>
+
+    <ng-container *ngFor='let eachConfig of formConfig'>
+
+        <div class='form-group'>
+            <label>{{eachConfig.label}}</label>
+            <input type={{eachConfig.type}} name={{eachConfig.name}} formControlName={{eachConfig.name}} class='form-control'>
+        </div>
+    </ng-container>
+    <div *ngIf='updateForm.invalid && ( updateForm.dirty || updateForm.touched)'>User name or Phone required</div>
+
+    <input type="submit" value="Update" class='btn btn-info' [disabled]='updateForm.invalid'>
+
+</form>
+<span>
+{{errorMessage}}
+</span><br>
+<span>
+    {{trainingdays}}
+    </span>
+
+
